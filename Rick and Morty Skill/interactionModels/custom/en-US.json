@@ -1,0 +1,204 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "rick and morty",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "DatosPersonajeIntent",
+          "slots": [
+            {
+              "name": "nombre",
+              "type": "AMAZON.Person"
+            }
+          ],
+          "samples": [
+            "do you know {nombre}",
+            "what do you know about {nombre}",
+            "tell me all the information about {nombre}",
+            "tell me what you know about {nombre}",
+            "tell me all the details of {nombre}"
+          ]
+        },
+        {
+          "name": "EleccionPersonajeIntent",
+          "slots": [
+            {
+              "name": "numero",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "tell me about {numero}",
+            "who is the {numero}",
+            "tell me more than {numero}",
+            "i want to know more about {numero}",
+            "tell me the details of the {numero}"
+          ]
+        },
+        {
+          "name": "PersonajeFavoritoIntent",
+          "slots": [
+            {
+              "name": "personaje",
+              "type": "AMAZON.Person"
+            }
+          ],
+          "samples": [
+            "{personaje} is the character i like the most",
+            "{personaje} is my favorite character",
+            "save {personaje} as my favorite character",
+            "the character i like the most is {personaje}"
+          ]
+        },
+        {
+          "name": "PersonajeFavoritoListaIntent",
+          "slots": [
+            {
+              "name": "numero",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "the {numero}",
+            "the {numero} is the character i like the most",
+            "the {numero} is my favorite character",
+            "the character i like the most is the {numero}",
+            "my favorite character is {numero}"
+          ]
+        },
+        {
+          "name": "ConsultarPersonajeFavoritoIntent",
+          "slots": [],
+          "samples": [
+            "who is my favorite character",
+            "tell me the character I like the most",
+            "what was the character that I liked the most",
+            "remind me which was my favorite character",
+            "what was my favorite character",
+            "tell me my favorite character"
+          ]
+        },
+        {
+          "name": "PersonajeNoFavoritoIntent",
+          "slots": [
+            {
+              "name": "personaje",
+              "type": "AMAZON.Person"
+            }
+          ],
+          "samples": [
+            "{personaje} is the character I least like",
+            "{personaje} is my character that I hate the most",
+            "save {personaje} as my most hateful character",
+            "the character I like the least is {personaje}",
+            "my most hated character is {personaje}"
+          ]
+        },
+        {
+          "name": "PersonajeNoFavoritoListaIntent",
+          "slots": [
+            {
+              "name": "numero",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "the {numero} is the character I like the least",
+            "the {numero} is my most hated character",
+            "save {numero} as my most hated character",
+            "the character I like the least is the {numero}",
+            "my most hated character is the {numero}"
+          ]
+        },
+        {
+          "name": "ConsultarPersonajeNoFavoritoIntent",
+          "slots": [],
+          "samples": [
+            "who is my most hated character",
+            "tell me the character I like the least",
+            "what was the character that I liked the least",
+            "remind me which was my most hated character",
+            "what was my most hated character",
+            "tell me my most hated character"
+          ]
+        },
+        {
+          "name": "RemindEpisodioIntent",
+          "slots": [
+            {
+              "name": "mensaje",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{mensaje}"
+              ]
+            }
+          ],
+          "samples": [
+            "create a reminder with the text",
+            "create a reminder with the text {mensaje}"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "RemindEpisodioIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "mensaje",
+              "type": "AMAZON.SearchQuery",
+              "elicitationRequired": true,
+              "confirmationRequired": true,
+              "prompts": {
+                "confirmation": "Confirm.Slot.315985243039.1060170686073",
+                "elicitation": "Elicit.Slot.315985243039.1060170686073"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.315985243039.1060170686073",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Ok, tell me the reminder"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Slot.315985243039.1060170686073",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Are you sure you want to create this reminder?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "3"
+}

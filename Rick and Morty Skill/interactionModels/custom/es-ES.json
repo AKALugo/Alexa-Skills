@@ -1,0 +1,210 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "rick y morty",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "DatosPersonajeIntent",
+          "slots": [
+            {
+              "name": "nombre",
+              "type": "AMAZON.Person"
+            }
+          ],
+          "samples": [
+            "conoces a {nombre}",
+            "qué sabes sobre {nombre}",
+            "dime toda la información sobre {nombre}",
+            "dime lo que sepas de {nombre}",
+            "dime lo que sepas sobre {nombre}",
+            "dime todos los datos de {nombre}"
+          ]
+        },
+        {
+          "name": "EleccionPersonajeIntent",
+          "slots": [
+            {
+              "name": "numero",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "hablame del {numero}",
+            "cuentame lo que sepas del {numero}",
+            "qué sabes del {numero}",
+            "quién es el {numero}",
+            "dime más del {numero}",
+            "quiero saber más del {numero}",
+            "dime los datos del {numero}"
+          ]
+        },
+        {
+          "name": "PersonajeFavoritoIntent",
+          "slots": [
+            {
+              "name": "personaje",
+              "type": "AMAZON.Person"
+            }
+          ],
+          "samples": [
+            "{personaje} es el personaje que más me gusta",
+            "{personaje} es mi personaje favorito",
+            "guarda a {personaje} como mi personaje favorito",
+            "el personaje que más me gusta es {personaje}",
+            "mi personaje favorito es {personaje}"
+          ]
+        },
+        {
+          "name": "PersonajeFavoritoListaIntent",
+          "slots": [
+            {
+              "name": "numero",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "el {numero}",
+            "el {numero} es el personaje que más me gusta",
+            "el {numero} es mi personaje favorito",
+            "guarda a el {numero} como mi personaje favorito",
+            "el personaje que más me gusta es el {numero}",
+            "mi personaje favorito es el {numero}"
+          ]
+        },
+        {
+          "name": "ConsultarPersonajeFavoritoIntent",
+          "slots": [],
+          "samples": [
+            "quién es mi personaje favorito",
+            "dime el personaje que más me gusta",
+            "cuál era el personaje que más me gustaba",
+            "recuerdame cuál era mi personaje favorito",
+            "cuál era mi personaje favorito",
+            "dime mi personaje favorito"
+          ]
+        },
+        {
+          "name": "PersonajeNoFavoritoIntent",
+          "slots": [
+            {
+              "name": "personaje",
+              "type": "AMAZON.Person"
+            }
+          ],
+          "samples": [
+            "{personaje} es el personaje que menos me gusta",
+            "{personaje} es mi personaje que más odio",
+            "guarda a {personaje} como mi personaje que más odio",
+            "el personaje que menos me gusta es {personaje}",
+            "mi personaje más odiado es {personaje}"
+          ]
+        },
+        {
+          "name": "PersonajeNoFavoritoListaIntent",
+          "slots": [
+            {
+              "name": "numero",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "el {numero} es el personaje que menos me gusta",
+            "el {numero} es mi personaje más odiado",
+            "guarda a el {numero} como mi personaje más odiado",
+            "el personaje que menos me gusta es el {numero}",
+            "mi personaje más odiado es el {numero}"
+          ]
+        },
+        {
+          "name": "ConsultarPersonajeNoFavoritoIntent",
+          "slots": [],
+          "samples": [
+            "quién es mi personaje más odiado",
+            "dime el personaje que menos me gusta",
+            "cuál era el personaje que menos me gustaba",
+            "recuerdame cuál era mi personaje más odiado",
+            "cuál era mi personaje más odiado",
+            "dime mi personaje más odiado"
+          ]
+        },
+        {
+          "name": "RemindEpisodioIntent",
+          "slots": [
+            {
+              "name": "message",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{message}"
+              ]
+            }
+          ],
+          "samples": [
+            "crea un recordatorio para el próximo episodio {message}",
+            "crea un recordatorio para el próximo episodio"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "RemindEpisodioIntent",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirmation": "Confirm.Intent.436341642669"
+          },
+          "slots": [
+            {
+              "name": "message",
+              "type": "AMAZON.SearchQuery",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.436341642669.51619125744"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Confirm.Intent.436341642669",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Estás seguro de que quieres guardar este recordatorio?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.436341642669.51619125744",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Vale, ahora dime el recordatorio"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "44"
+}
